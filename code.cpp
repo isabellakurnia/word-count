@@ -16,12 +16,22 @@ int main() {
     if (in.is_open()){
         string copy;
         int count = 0;
+        int character = 0;
+        int space = 0;
         while (in >> copy){
+            int c = in.peek();
+            if (c == 32)
+                space++;
+            for (int i = 0; i < copy.size(); i++){
+                character++;
+            }
             count++;
         }
         in.close();
         copy.clear();
         cout << "Word count: " << count << endl;
+        cout << "Character count: " << character << endl;
+        cout << "Character count (with spaces): " << character + space << endl;
     }
     
     else {
